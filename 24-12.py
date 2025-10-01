@@ -1,5 +1,5 @@
 import sys
-import datetime
+import re
 
 arguments = sys.argv[1:]
 
@@ -8,29 +8,24 @@ if len(arguments) != 1:
 
 time = arguments[0]
 
-if not time[:2].isdigit() or not time[3:].isdigit() or not time[2] == ":":
-	sys.exit("Merci d'utiliser le format 'HH:mm'")
+timePattern = r"^([0-1]?[0-9]|2[0-3]):([0-5][0-9])$"
 
-hour = int(time[:2])
-minute = int(time[3:])
+if not re.match(timePattern, time):
+	print("Le format 24h n'est pas respecté")
+
+hour, minute = time.split(":")
+hour, minute = int(hour), int(minute)
 period = "AM"
-
-if hour > 23 or minute > 59:
-	sys.exit("Merci d'indiquer un horaire valide")
 
 if hour == 0:
 	hour += 12
-	time = f"{hour}:{minute} {period}"
 
 elif hour == 12:
 	period = "PM"
 
-elif hour > 11:
+elif hour > 12:
 	period = "PM"
-	for validFormat in range(0, 12):
-		if validFormat + 12  == hour:
-			hour = validFormat
-			break
+	hour = hour - 12
 
 time = f"{hour}:{minute} {period}"
 print(time)
