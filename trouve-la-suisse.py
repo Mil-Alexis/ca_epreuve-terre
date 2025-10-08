@@ -6,8 +6,8 @@ if len(arguments) != 3:
 	sys.exit("Merci de donner 3 arguments")
 
 for argument in arguments:
-     if not argument.isdigit():
-          sys.exit("Veuillez saisir 3 nombres")
+    if not argument.isdigit():
+        sys.exit("Veuillez saisir 3 nombres")
 
 firstNumber, secondNumber, thirdNumber = arguments[0], arguments[1], arguments[2]
 
