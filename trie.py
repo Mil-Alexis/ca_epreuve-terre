@@ -2,14 +2,16 @@ import sys
 
 arguments = sys.argv[1:]
 
-if len(arguments) != 3:
-	sys.exit("Merci de donner 3 arguments")
+if len(arguments) < 3:
+	sys.exit("Merci d'au moins donner 3 arguments")
+     
+numbers = []
 
 for argument in arguments:
     if not argument.isdigit():
-        sys.exit("Veuillez saisir 3 nombres")
+        sys.exit("Veuillez saisir des nombres")
+    numbers.append(int(argument))
 
-numbers = [int(arguments[0]), int(arguments[1]), int(arguments[2])]
 
 isSort = True
 
