@@ -27,5 +27,5 @@ elif hour > 12:
 	period = "PM"
 	hour = hour - 12
 
-time = f"{hour}:{minute} {period}"
+time = f"{str(hour).zfill(2)}:{minute} {period}"
 print(time)
