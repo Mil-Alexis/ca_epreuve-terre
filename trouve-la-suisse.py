@@ -20,4 +20,3 @@ elif thirdNumber < secondNumber < firstNumber or firstNumber < secondNumber < th
 	print(secondNumber)
 else:
 	print(thirdNumber)
-
